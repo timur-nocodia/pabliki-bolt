@@ -16,19 +16,19 @@ const news = [
   {
     title: "YouTube запустил новый тариф Premium Lite...",
     excerpt: "YouTube запустил новый тариф Premium Lite, который является самым дешевым в его линейке подписок. Тариф Premium за $12 в месяц обеспечивает полное отсутствие рекламы, включая...",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=800",
+    image: "/ads2.png",
     date: "12 марта 2024"
   },
   {
     title: "Французская рекламная группа Publicis по итогам 2024 года...",
     excerpt: "Французская рекламная группа Publicis по итогам 2024 года заняла первое место среди крупнейших рекламных компаний мира, обогнав своих конкурентов и укрепив позиции на глобальном рынке...",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800",
+    image: "/ads2.png",
     date: "10 марта 2024"
   },
   {
     title: "Gruppa Russ поддержат социальные инициативы государства через рекламу",
     excerpt: "Gruppa Russ разработала концепцию продвижения, основанную на базовых ценностях и приоритетах, таких как «Дружить по-russки» и «Любить по-russki». В результате ...",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800",
+    image: "/ads2.png",
     date: "8 марта 2024"
   }
 ]

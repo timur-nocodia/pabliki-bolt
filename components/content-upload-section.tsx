@@ -1,5 +1,6 @@
 "use client"
 
+import { ru } from "date-fns/locale"
 import { Calendar } from "@/components/ui/calendar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,9 +8,32 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Link, Upload, Image as ImageIcon, FileVideo, Heart, MessageCircle, Send, Bookmark, MoreHorizontal, X, CheckCircle, Loader2 } from "lucide-react"
+import { Link, Upload, Image as ImageIcon, FileVideo, Heart, MessageCircle, Send, Bookmark, MoreHorizontal, X, CheckCircle, Loader2, CalendarIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { RegistrationModal } from "@/components/shared/registration-modal"
+import { cn } from "@/lib/utils"
+
+// Function to format date in Russian
+function formatDateInRussian(date: Date | undefined): string {
+  if (!date) return "Дата не выбрана";
+  
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  
+  const monthNames = [
+    "января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"
+  ];
+  
+  const weekDays = [
+    "Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"
+  ];
+  
+  const dayOfWeek = weekDays[date.getDay()];
+  
+  return `${day} ${monthNames[month]}, ${dayOfWeek}, ${year} года`;
+}
 
 export function ContentUploadSection() {
   const [date, setDate] = useState<Date>()
@@ -333,12 +357,52 @@ export function ContentUploadSection() {
 
             <div className="space-y-4">
               <Label className="text-lg font-medium text-primary">Выбрать дату размещения</Label>
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                className="rounded-lg border shadow-sm"
-              />
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="md:justify-self-start">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                    className="rounded-lg border w-full"
+                    locale={ru}
+                    weekStartsOn={1}
+                    modifiers={{
+                      today: new Date(),
+                    }}
+                    modifiersStyles={{
+                      today: {
+                        border: '2px solid #2563eb',
+                        borderRadius: '0.5rem',
+                      }
+                    }}
+                    classNames={{
+                      day_selected: cn(
+                        "!bg-primary !text-primary-foreground rounded-lg pointer-events-none"
+                      ),
+                      day_today: cn(
+                        "bg-transparent text-black font-bold rounded-lg"
+                      ),
+                      day: cn(
+                        "h-9 w-9 p-0 font-normal rounded-lg focus:bg-primary focus:text-primary-foreground hover:bg-accent hover:text-accent-foreground"
+                      ),
+                      cell: cn(
+                        "h-9 w-9 text-center text-sm p-0 relative focus-within:relative focus-within:z-20"
+                      )
+                    }}
+                  />
+                </div>
+                <div className="flex flex-col justify-center h-full space-y-4">
+                  <div className="flex items-center gap-2 text-primary">
+                    <CalendarIcon className="h-5 w-5" />
+                    <h3 className="font-medium">Выбранная дата:</h3>
+                  </div>
+                  <p className="text-2xl font-semibold">{formatDateInRussian(date)}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Ваша публикация будет отправлена на размещение в указанную дату
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">

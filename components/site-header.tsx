@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -21,9 +22,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
         <div className="mr-8 flex">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">pabliki</span>
-            <span className="rounded bg-blue-600 px-1.5 py-0.5 text-sm font-semibold text-white">.KZ</span>
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/logo/pabliki_logo_light.svg" 
+              alt="Pabliki.KZ" 
+              width={120} 
+              height={36} 
+              priority
+            />
           </Link>
         </div>
         <NavigationMenu className="hidden md:flex">

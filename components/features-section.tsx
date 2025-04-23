@@ -94,7 +94,7 @@ export function FeaturesSection() {
             <div className="relative bg-card rounded-xl shadow-lg overflow-hidden">
               <AspectRatio ratio={16/9}>
                 <img
-                  src="/dashboard.jpg"
+                  src="/analytics.png"
                   alt="Dashboard"
                   className="object-cover w-full h-full"
                 />

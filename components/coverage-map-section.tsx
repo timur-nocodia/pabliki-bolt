@@ -64,8 +64,8 @@ function CityMarker({ name, x, y, followers, region, onClick }: CityMarkerProps)
             left: '50%',
             bottom: '100%',
             marginBottom: '8px',
-            transformOrigin: 'center bottom',
-            transform: spring.scale.to(s => `scale(${s}) translateX(-50%)`),
+            transformOrigin: 'bottom center',
+            transform: spring.scale.to(s => `translateX(-50%) scale(${s})`),
             zIndex: 999
           }}
         >
@@ -88,7 +88,7 @@ export function CoverageMapSection() {
   }
 
   return (
-    <section className="py-24 bg-muted/50">
+    <section id="coverage" className="py-24 bg-muted/50">
       <div className="container">
         <h2 className="text-4xl font-bold text-center mb-16">
           Покрытие аудитории по Казахстану

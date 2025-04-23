@@ -4,25 +4,23 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export function LaunchSection() {
   return (
-    <section className="py-24 bg-muted">
+    <section id="placement" className="py-24 bg-muted">
       <div className="container">
         <h2 className="text-4xl font-bold text-center mb-16">
           КАК ЗА 60 СЕКУНД ЗАПУСТИТЬ РЕКЛАМУ В ПАБЛИКАХ
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative rounded-lg overflow-hidden">
+          <div className="relative rounded-lg overflow-hidden border shadow-md">
             <AspectRatio ratio={16 / 9}>
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/launch-preview.jpg"
-              >
-                <source src="/launch-video.mp4" type="video/mp4" />
-              </video>
+              <iframe
+                className="w-full h-full absolute top-0 left-0"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Как запустить рекламу в пабликах"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </AspectRatio>
           </div>
           
